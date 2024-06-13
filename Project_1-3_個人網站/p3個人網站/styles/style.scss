@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+body {
+  // 因為有設綠色的div框線，水平軸會有拉bar，設為hidden
+  overflow-x: hidden;
+  nav {
+    background-color: white;
+    // 設置固定導覽
+    position: sticky;
+    top: 0;
+    // 表最大層
+    z-index: 10;
+    ul {
+      display: flex;
+      li {
+        list-style-type: none;
+        margin: 1rem;
+        a {
+          text-decoration: none;
+          color: black;
+          transition: all 0.1s ease;
+          &:hover {
+            color: rgb(54, 218, 122);
+          }
+        }
+      }
+    }
+  }
+  main {
+    section.main-area {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      height: 70vh;
+      div.info {
+        // border: 2px solid black;
+        flex-basis: 450px;
+        padding: 1rem;
+        h1 {
+          font-size: 3.5rem;
+        }
+        h2 {
+          font-size: 1rem;
+        }
+        a {
+          font-size: 1.5rem;
+          background-color: rgb(54, 218, 122);
+          color: white;
+          border-radius: 20px;
+          // 因為a標籤為inline-display，將之設為inline-block才可用margin-top推開
+          display: inline-block;
+          margin-top: 2rem;
+          padding: 0.25rem 0.5rem;
+          text-decoration: none;
+          transition: all 0.2s ease;
+          &:hover {
+            transform: scale(1.2); //放大
+          }
+        }
+      }
+      div.img-area {
+        // border: 2px solid red;
+        flex-basis: 450px;
+        img {
+          width: 80%;
+        }
+      }
+    }
+    section.about-me {
+      background-color: rgb(231, 255, 233);
+      padding: 5rem 0rem;
+      display: flex;
+      justify-content: center;
+
+      section.description {
+        width: 70%;
+        text-align: center;
+        h2 {
+          font-size: 2rem;
+        }
+        .progress-bar-area {
+          p {
+            margin-top: 1rem;
+          }
+        }
+      }
+    }
+    section.resume {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 2rem;
+
+      section.table {
+        // border: 2px solid red;
+        flex: 5 0 500px;
+        padding: 2rem;
+
+        table {
+          --bs-table-bg: none; //bootstrap預設資料會擋住綠色border
+          border-collapse: collapse;
+          tr {
+            border-bottom: 2px solid gray;
+            transition: all 0.1s ease;
+            &:hover {
+              background-color: rgb(184, 255, 222);
+            }
+            td {
+              padding: 1rem;
+            }
+          }
+        }
+      }
+      section.picture {
+        // border: 2px solid black;
+        flex: 1 1 500px;
+        display: flex;
+        // 因為display設為flex，img為flex-item，flex-item的預設值為strect-->會將圖片拉長
+        // 故要將align-items設為center
+        justify-content: center;
+        align-items: center;
+        // 將postion設為relative，使greenRect可以對應
+        position: relative;
+        img {
+          width: 60%;
+        }
+
+        div.greenRect {
+          border: 10px solid rgb(195, 255, 200);
+          width: 25vw;
+          height: 90vh;
+          //將position設為absolute，及不為flex-item的控制項
+          position: absolute;
+          top: 80px;
+          left: 145px;
+          z-index: -1;
+        }
+        div.greenRect2 {
+          border: 10px solid rgb(195, 255, 200);
+          width: 45vw;
+          height: 50vh;
+          //將position設為absolute，及不為flex-item的控制項
+          position: absolute;
+          top: 30px;
+          left: -133px;
+          z-index: -1;
+        }
+        div.greenRect3 {
+          border: 10px solid rgb(195, 255, 200);
+          width: 55vw;
+          height: 40vh;
+          //將position設為absolute，及不為flex-item的控制項
+          position: absolute;
+          top: 140px;
+          left: -160px;
+          z-index: -1;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  body {
+    main {
+      section.about-me {
+        section.description {
+          width: 80%;
+        }
+      }
+      section.resume {
+        //將flex-shrink設為0，只讓表格有拉bar
+        overflow-x: auto;
+        section.picture {
+          // 當縮小時，移除綠色外框
+          div.greenRect,
+          div.greenRect2,
+          div.greenRect3 {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  body {
+    nav {
+      // 因為一般介面改為sticky，在縮小時會遮住內容，須調整回來
+      position: static;
+      ul {
+        // 縮小時改以直向排列
+        flex-direction: column;
+      }
+    }
+  }
+}

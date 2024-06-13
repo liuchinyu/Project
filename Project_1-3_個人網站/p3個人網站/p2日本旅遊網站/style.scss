@@ -1,0 +1,235 @@
+$themeColor: rgba(152, 52, 255, 0.5);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+body {
+  position: relative;
+  .fixed-image {
+    width: 100%;
+    min-height: 100vh;
+    z-index: -5;
+    position: fixed;
+    left: 0;
+    // top: 0;
+    bottom: 0;
+  }
+  header {
+    background-color: white; /*確保導引列不會被背景卡掉*/
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: sticky; /*固定導引列*/
+    top: 0;
+    z-index: 10; /*置於最上層*/
+    box-shadow: 0 10px 6px -6px #777; /*導引列下方新增陰影，以防因背景顏色重疊而覆蓋*/
+
+    section.logo {
+      flex: 2 1 400px;
+      // border: 2px solid green;
+      display: flex;
+      align-items: center;
+
+      h1 {
+        font-size: 2.5rem;
+      }
+      img {
+        width: 6vw;
+        height: 6vw;
+      }
+    }
+    nav {
+      flex: 5 1 500px;
+      // border: 2px solid red;
+
+      ul {
+        display: flex;
+        list-style-type: none;
+        justify-content: space-around;
+
+        li {
+          a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.35rem;
+            transition: all 0.1s ease;
+            padding: 0.3rem;
+            &:hover {
+              color: $themeColor;
+              border-bottom: 2px solid $themeColor;
+            }
+          }
+        }
+      }
+    }
+  }
+  main {
+    section.background-img {
+      background-image: url(./images/日本櫻花.jpg);
+      background-size: cover;
+      background-position: center;
+      min-height: 70vh;
+      transition: all 0.75s ease;
+      position: relative;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      div.filter {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%; /*包含整個圖片*/
+        min-height: 70vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+      h3 {
+        font-size: 2.5rem;
+        color: white;
+        text-align: center;
+      }
+    }
+    section.trip-topic {
+      background-color: white;
+      padding: 2rem;
+      h3 {
+        font-size: 2rem;
+        text-align: center;
+      }
+      div.circles {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        div.circle {
+          padding: 1rem;
+          flex: 0 1 250px;
+          //border: 2px solid black;
+          display: flex;
+          flex-direction: column; /*讓補充說明的文字置中對齊*/
+          align-items: center;
+
+          img {
+            width: 80%;
+            border-radius: 50%; /*圖片圓弧*/
+            transition: all 0.1s ease-in;
+            padding: 0.3rem; /*讓圖片跟底下文字有間隔*/
+            &:hover {
+              border: 3px solid $themeColor;
+            }
+          }
+        }
+      }
+    }
+    section.under-photo {
+      background-color: rgba(0, 0, 0, 0.7);
+      min-height: 70vh;
+      display: flex;
+      justify-content: center; //剩餘空間
+      align-items: center; //
+
+      h3 {
+        color: white;
+        font-size: 1.5rem;
+      }
+    }
+    section.google-map {
+      background-color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      h3 {
+        font-size: 2.5rem;
+        // text-align: center;
+        // padding-top: 1rem;
+      }
+      p {
+        font-size: 1.25rem;
+        margin: 1rem;
+        // padding: 1rem;
+      }
+      iframe {
+        width: 100%;
+        height: 40vh;
+      }
+    }
+  }
+  footer {
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    section.logo {
+      img {
+        width: 20vw;
+      }
+      h3 {
+        font-size: 2.5rem;
+      }
+    }
+    section.icon {
+      margin-top: 2rem;
+      a {
+        img {
+          width: 5vh;
+          margin: 0rem 1rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  body {
+    header {
+      section.logo {
+        flex-direction: column;
+        img {
+          width: 50vw;
+          height: 50vw;
+        }
+      }
+      nav {
+        ul {
+          flex-direction: column;
+          li {
+            padding: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+/*scrollbar*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /*scrollbar剩餘的顏色*/
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $themeColor;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}

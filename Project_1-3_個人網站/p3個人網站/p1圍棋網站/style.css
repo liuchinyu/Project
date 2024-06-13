@@ -1,0 +1,179 @@
+@font-face {
+  font-family: "myFont";
+  src: url("./JasonHandwriting1.ttf"); /*清松手寫體*/
+}
+* {
+  padding: 0; /*方便設定元素*/
+  margin: 0;
+  box-sizing: border-box; /*方便控制寬度*/
+  font-family: myFont, DFkai-sb, sans-serif; / 先套用清松手寫體，再套用標楷體*/
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+header div.top {
+  padding: 1rem;
+  background-image: url(./images/background.png);
+}
+header div.top h1 {
+  font-size: 2.5rem;
+}
+header div.top h3 {
+  font-size: 1rem;
+}
+
+header nav {
+  background-color: black;
+}
+
+header nav ul {
+  /*欲將底下的li設置為flex-item，需將其父元素ul設為flex，而非在nav設置*/
+  display: flex;
+  list-style-type: none; /*將list前面的黑點符號去除*/
+}
+
+header nav ul li {
+  padding: 0.8rem 1.2rem;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: all 0.3s ease; /*針對轉變的型別設定transition*/
+}
+.active {
+  color: yellow;
+}
+nav ul li a:hover {
+  color: yellow;
+}
+/*flex-container*/
+main {
+  display: flex;
+  flex-wrap: wrap; /*網頁寬度小於所有flex-item(left、right)的basis加總(200+500)，會自動排版 */
+}
+main.no-main {
+  display: block;
+}
+main section {
+  padding: 1rem;
+}
+section.left {
+  flex: 1 1 200px;
+}
+
+section.left img {
+  width: 100%; /*網頁寬度扣除left的200px、right的500px，剩餘空間的五分之一為left的寬度，img為其寬度的90%*/
+}
+section.left h3 {
+  margin-bottom: 1rem;
+}
+section.left table {
+  margin-top: 1rem;
+}
+section.left table,
+section.left td {
+  padding: 0.25rem;
+}
+section.right {
+  flex: 4 1 500px;
+}
+
+section.right h3 {
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+}
+p {
+  padding: 0.5rem 0rem;
+}
+section.right ul {
+  margin-left: 2rem;
+}
+div.player h4 {
+  font-size: 1.5rem;
+  color: rgb(0, 90, 91);
+}
+div.player h5 {
+  font-size: 1.05rem;
+  color: rgb(0, 120, 121);
+}
+.player {
+  margin: 2rem;
+  border: 3px solid burlywood;
+  padding: 0.5rem;
+}
+section div.japan_description {
+  display: flex;
+  flex-wrap: wrap;
+}
+section div.japan {
+  flex: 1 1 150px;
+  padding: 1rem;
+  display: flex;
+  align-items: center; /*flex-container元素的擺放位置-->使圖片置放在中間*/
+}
+section div.info {
+  flex: 3 1 600px;
+  padding: 2rem;
+}
+
+section div.japan img {
+  width: 100%;
+}
+div.text {
+  padding: 1.5rem;
+}
+div.text h3 {
+  font-size: 2rem;
+  color: rgb(12, 92, 92);
+}
+div.competition {
+  display: flex;
+  flex-wrap: wrap;
+}
+div.text {
+  flex: 6 1 300px;
+}
+#piechart {
+  flex: 1 1 200px;
+}
+div.china h3 {
+  font-size: 2rem;
+  color: rgb(12, 92, 92);
+}
+div.china-competition h3 {
+  font-size: 2rem;
+  color: rgb(12, 92, 92);
+}
+
+div.china-competition table th {
+  background-color: rgb(86, 224, 192);
+  color: white;
+}
+div.china-competition table th,
+td {
+  border: 1px solid white;
+  border-collapse: collapse;
+  padding: 2px 4px;
+}
+div.china-competition table {
+  min-width: 1000px;
+}
+.taiwan h3 {
+  font-size: 2rem;
+  color: rgb(12, 92, 92);
+}
+.taiwan ul li {
+  margin-left: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  header nav ul {
+    flex-direction: column;
+  }
+}

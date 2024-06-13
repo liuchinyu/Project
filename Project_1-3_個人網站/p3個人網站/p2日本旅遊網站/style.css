@@ -1,0 +1,206 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+body {
+  position: relative;
+}
+body .fixed-image {
+  width: 100%;
+  min-height: 100vh;
+  z-index: -5;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+body header {
+  background-color: white; /*確保導引列不會被背景卡掉*/
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: sticky; /*固定導引列*/
+  top: 0;
+  z-index: 10; /*置於最上層*/
+  box-shadow: 0 10px 6px -6px #777; /*導引列下方新增陰影，以防因背景顏色重疊而覆蓋*/
+}
+body header section.logo {
+  flex: 2 1 400px;
+  display: flex;
+  align-items: center;
+}
+body header section.logo h1 {
+  font-size: 2.5rem;
+}
+body header section.logo img {
+  width: 6vw;
+  height: 6vw;
+}
+body header nav {
+  flex: 5 1 500px;
+}
+body header nav ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+}
+body header nav ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.35rem;
+  transition: all 0.1s ease;
+  padding: 0.3rem;
+}
+body header nav ul li a:hover {
+  color: rgba(152, 52, 255, 0.5);
+  border-bottom: 2px solid rgba(152, 52, 255, 0.5);
+}
+body main section.background-img {
+  background-image: url(./images/日本櫻花.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 70vh;
+  transition: all 0.75s ease;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main section.background-img div.filter {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%; /*包含整個圖片*/
+  min-height: 70vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+body main section.background-img h3 {
+  font-size: 2.5rem;
+  color: white;
+  text-align: center;
+}
+body main section.trip-topic {
+  background-color: white;
+  padding: 2rem;
+}
+body main section.trip-topic h3 {
+  font-size: 2rem;
+  text-align: center;
+}
+body main section.trip-topic div.circles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+body main section.trip-topic div.circles div.circle {
+  padding: 1rem;
+  flex: 0 1 250px;
+  display: flex;
+  flex-direction: column; /*讓補充說明的文字置中對齊*/
+  align-items: center;
+}
+body main section.trip-topic div.circles div.circle img {
+  width: 80%;
+  border-radius: 50%; /*圖片圓弧*/
+  transition: all 0.1s ease-in;
+  padding: 0.3rem; /*讓圖片跟底下文字有間隔*/
+}
+body main section.trip-topic div.circles div.circle img:hover {
+  border: 3px solid rgba(152, 52, 255, 0.5);
+}
+body main section.under-photo {
+  background-color: rgba(0, 0, 0, 0.7);
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body main section.under-photo h3 {
+  color: white;
+  font-size: 1.5rem;
+}
+body main section.google-map {
+  background-color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+body main section.google-map h3 {
+  font-size: 2.5rem;
+}
+body main section.google-map p {
+  font-size: 1.25rem;
+  margin: 1rem;
+}
+body main section.google-map iframe {
+  width: 100%;
+  height: 40vh;
+}
+body footer {
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+body footer section.logo img {
+  width: 20vw;
+}
+body footer section.logo h3 {
+  font-size: 2.5rem;
+}
+body footer section.icon {
+  margin-top: 2rem;
+}
+body footer section.icon a img {
+  width: 5vh;
+  margin: 0rem 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  body header section.logo {
+    flex-direction: column;
+  }
+  body header section.logo img {
+    width: 50vw;
+    height: 50vw;
+  }
+  body header nav ul {
+    flex-direction: column;
+  }
+  body header nav ul li {
+    padding: 0.5rem;
+  }
+}
+/*scrollbar*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /*scrollbar剩餘的顏色*/
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(152, 52, 255, 0.5);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}/*# sourceMappingURL=style.css.map */

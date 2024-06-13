@@ -1,0 +1,115 @@
+#background-wrap {
+  /*不論頁面在哪，泡泡位置不變 ，fixed且上下左右都為0，表覆蓋整個頁面*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 15;
+  /* 設定滑鼠相關動作為無關聯 */
+  pointer-events: none;
+}
+
+.bubble {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  /*設定泡泡，外層有黑色陰影，內層為白色*/
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.2),
+    inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
+}
+
+/*從下移動到上的動畫 */
+@keyframes animateBubble {
+  0% {
+    margin-top: 1000px;
+  }
+  50% {
+    margin-top: -100%;
+  }
+}
+/*左右搖擺的動畫 */
+@keyframes sideWays {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+
+.x1 {
+  /*從下到上，花25秒，線性的function，不斷重複 */
+  /*左到右，alternate表當左邊到右邊結束後，會再由右邊換到左邊 */
+  animation: animateBubble 25s linear infinite,
+    sideWays 2s ease-in-out infinite alternate;
+  /* 0%不為最左邊 */
+  left: -5%;
+  top: 5%;
+  /*以同為一個div的bubble設定寬、高*/
+  transform: scale(0.6);
+}
+.x2 {
+  animation: animateBubble 25s linear infinite,
+    sideWays 2s ease-in-out infinite alternate;
+  left: 5%;
+  top: 55%;
+  transform: scale(1);
+}
+.x3 {
+  animation: animateBubble 25s ease-in-out infinite,
+    sideWays 2s ease-in-out infinite alternate;
+  left: 15%;
+  top: 20%;
+  transform: scale(0.3);
+}
+.x4 {
+  animation: animateBubble 18s ease-out infinite,
+    sideWays 2s ease-in-out infinite alternate;
+  left: 45%;
+  top: 55%;
+  transform: scale(0.7);
+}
+.x5 {
+  animation: animateBubble 18s ease-out infinite,
+    sideWays 2s ease-in-out infinite alternate;
+  left: 55%;
+  top: 55%;
+  transform: scale(1.2);
+}
+.x6 {
+  animation: animateBubble 18s ease-out infinite,
+    sideWays 2s ease-in-out infinite alternate;
+  left: 35%;
+  top: -5%;
+  transform: scale(0.5);
+}
+.x7 {
+  animation: animateBubble 25s linear infinite,
+    sideWays 2s ease-in-out infinite alternate;
+  left: 85%;
+  top: 55%;
+  transform: scale(1.3);
+}
+.x8 {
+  animation: animateBubble 18s ease-in-out infinite,
+    sideWays 2s ease-in-out infinite alternate;
+  left: 75%;
+  top: 55%;
+  transform: scale(0.4);
+}
+.x9 {
+  animation: animateBubble 25s ease-in-out infinite,
+    sideWays 2s ease-in-out infinite alternate;
+  left: 75%;
+  top: 55%;
+  transform: scale(1.5);
+}
+.x10 {
+  animation: animateBubble 15s ease-in-out infinite,
+    sideWays 2s ease-in-out infinite alternate;
+  left: 65%;
+  top: 55%;
+  transform: scale(0.4);
+}
